@@ -1,0 +1,471 @@
+
+  {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "CSE 341 Final Project",
+      "description": "Bucket List App",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "tags": [
+      {
+        "name": "Homepage",
+        "description": "Homepage Route."
+      },
+      {
+        "name": "Documentation",
+        "description": "Documentation Route."
+      },
+      {
+        "name": "Profile",
+        "description": "Profile Route."
+      },
+      {
+        "name": "OAuth 2.0",
+        "description": "Google Authentication."
+      },
+      {
+        "name": "List",
+        "description": "List Route."
+      },
+      {
+        "name": "Reminder",
+        "description": "Reminder resources."
+      },
+      {
+        "name": "Idea",
+        "description": "Idea resources."
+      },
+      {
+        "name": "User",
+        "description": "User resources."
+      }
+    ],
+    "paths": {
+      "/": {
+        "get": {
+          "description": "",
+          "tags": [
+            "Homepage"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api-docs": {
+        "get": {
+          "description": "",
+          "tags": [
+            "Documentation"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/list": {
+        "get": {
+          "tags": [
+            "List"
+          ],
+          "security": [],
+          "description": "",
+          "parameters": [     
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "List"
+          ],
+          "security": [],
+          "description": "",
+          "parameters": [     
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/list/item/{id}": {
+        "get": {
+          "tags": [
+            "List"
+          ],
+          "description": "",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "List"
+          ],
+          "security": [
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+                
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "List"
+          ],
+          "security": [
+           
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/idea": {
+        "get": {
+          "tags": [
+            "Idea"
+          ],
+          "security": [],
+          "description": "",
+          "parameters": [     
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Idea"
+          ],
+          "security": [],
+          "description": "",
+          "parameters": [     
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/idea/{id}": {
+        "get": {
+          "tags": [
+            "Idea"
+          ],
+          "description": "",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Idea"
+          ],
+          "security": [
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+                
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Idea"
+          ],
+          "security": [
+           
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/reminder": {
+        "get": {
+          "tags": [
+            "Reminder"
+          ],
+          "security": [],
+          "description": "",
+          "parameters": [     
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Reminder"
+          ],
+          "security": [],
+          "description": "",
+          "parameters": [     
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/reminder/{id}": {
+        "get": {
+          "tags": [
+            "Reminder"
+          ],
+          "description": "",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Reminder"
+          ],
+          "security": [
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+                
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Reminder"
+          ],
+          "security": [
+           
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    }
+  }
