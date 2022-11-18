@@ -41,8 +41,8 @@
         "description": "Idea resources."
       },
       {
-        "name": "User",
-        "description": "User resources."
+        "name": "Profile",
+        "description": "Profile resources."
       }
     ],
     "paths": {
@@ -110,6 +110,62 @@
         "post": {
           "tags": [
             "List"
+          ],
+          "security": [],
+          "description": "",
+          "parameters": [     
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/login": {
+        "post": {
+          "tags": [
+            "OAuth 2.0"
+          ],
+          "security": [],
+          "description": "",
+          "parameters": [     
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/logout": {
+        "get": {
+          "tags": [
+            "OAuth 2.0"
           ],
           "security": [],
           "description": "",
@@ -263,6 +319,34 @@
           }
         }
       },
+      "/profile": {
+        "post": {
+          "tags": [
+            "Profile"
+          ],
+          "security": [],
+          "description": "",
+          "parameters": [     
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
       "/idea/{id}": {
         "get": {
           "tags": [
@@ -318,6 +402,81 @@
         "delete": {
           "tags": [
             "Idea"
+          ],
+          "security": [
+           
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/profile/{id}": {
+        "get": {
+          "tags": [
+            "Profile"
+          ],
+          "description": "",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Profile"
+          ],
+          "security": [
+          ],
+          "description": "",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "requestBody":{
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": 
+                  {
+                  }
+                }
+                
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Profile"
           ],
           "security": [
            
