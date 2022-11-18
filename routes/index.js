@@ -15,7 +15,6 @@ router.use('/reminder', reminderRoutes);
 router.use('/user', userRoutes);
 
 
-// wondering about what this does
 router.use('/', require('../api_docs/swagger'));
 
 module.exports = router;
