@@ -9,9 +9,9 @@ userSchema.plugin(findOrCreate);
 const config = {
   authRequired: false,
   auth0Logout: true,
-  secret: "inttNAvBeBzu4GSg2mKgznrh5z4R9P5qE5WKpNjMz3F3ye_N5YlDFDZzAWMGOWlP",
+  secret: "",
   baseURL: 'http://localhost:3000',
-  clientID: 'w8SIFXmlXyTcZFI257Q6LKNwP1euFuaI',
+  clientID: '',
   issuerBaseURL: 'https://dev-y6qe1muvgy8lj2ln.us.auth0.com'
 };
 

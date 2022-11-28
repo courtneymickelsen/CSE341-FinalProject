@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const URI = "mongodb+srv://kofi:jaBf7HxXeilZmNUz@cluster0.bibvhtj.mongodb.net";
+const URI = "";
 const dbName = "bucketListApp";
 
 async function connect(){
