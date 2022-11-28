@@ -1,5 +1,3 @@
-
-// This is the homepage
-exports.home =(async(req, res)=>{
-    res.send("Welcome to the homepage.");
+exports.home = ((req, res) => {
+    res.send(req.oidc.isAuthenticated() ?  res.redirect('/profile/dashboard'): res.redirect('/'));
 });
