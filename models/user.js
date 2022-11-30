@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 var validate = require('mongoose-validator');
 const bcrypt = require("bcrypt");
-var saltRounds = parseInt("361589105943874398751560934285734095494948757483593405844884473829");
+const dotenv = require("dotenv").config({path: '.env'});
+var saltRounds = process.env.DB_SALT;
+
 
 var usernameValidator = [{
   validator1:validate({
@@ -19,7 +21,7 @@ var usernameValidator = [{
     message: 'Email is Invalid.',
   }),
 }
-  ]
+  ];
 
    
 const userSchema = new mongoose.Schema({

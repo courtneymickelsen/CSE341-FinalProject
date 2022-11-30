@@ -10,12 +10,12 @@ userSchema.plugin(findOrCreate);
 const config = {
   authRequired: false,
   auth0Logout: true,
-  secret: "",
+  secret: process.env.AUTH_0_SECRET,
   baseURL: 'http://localhost:3000',
-  clientID: '',
-  issuerBaseURL: 'https://dev-y6qe1muvgy8lj2ln.us.auth0.com'
+  clientID: process.env.AUTH_0_CLIENT_ID,
+  issuerBaseURL: process.env.AUTH_0_BASE_URL
 };
 
-routes.get("/authorize/login", userController.login);
+routes.get("/signin", userController.signin);
 
 module.exports = {routes, config};

@@ -8,7 +8,8 @@ const reminderRoutes = require('./reminder');
 const {routes , config} = require('./user');
 
 router.use(auth(config));
-router.route('/').get(mainCont.home);
+router.route('/').get(mainCont.main);
+router.route('/home').get(mainCont.home);
 
 
 router.use('/idea', ideaRoutes);

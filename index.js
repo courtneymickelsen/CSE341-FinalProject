@@ -3,7 +3,8 @@ const app = express();
 const PORT = 3000;
 const routes = require('./routes');
 app.use(routes);
-
+var cors = require('cors');
+app.use(cors());
 
 app.all("/*", (req,res) => {
     res.send("404 Page Not found.\n It could be possible that this resource does not exist or was never created.");

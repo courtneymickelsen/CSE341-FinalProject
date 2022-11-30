@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "watch": "nodemon index.js",
+    "test": "nodemon index.js",
+    "watch": "jest",
     "start": "node index.js"
   },
   "repository": {
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/courtneymickelsen/CSE341-FinalProject#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-openid-connect": "^2.10.0",

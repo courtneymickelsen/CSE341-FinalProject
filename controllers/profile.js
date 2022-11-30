@@ -1,6 +1,6 @@
 
-
 exports.dashboard =((req, res) => {
-    console.log(req.oidc.user);
-    res.send(req.oidc.user);
+    user =req.oidc.user;
+    console.log(user);
+    res.send(req.oidc.isAuthenticated() ?  res.send(user): res.redirect('/home')); 
 });
