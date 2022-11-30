@@ -3,6 +3,7 @@ const routes = express.Router();
 const userController =require("../controllers/user");
 const findOrCreate = require('mongoose-findorcreate');
 const userSchema= require("../models/user");
+const dotenv = require("dotenv").config({path: '.env'});
 
 userSchema.plugin(findOrCreate);
 

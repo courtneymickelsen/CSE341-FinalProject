@@ -1,6 +1,6 @@
 const connect = require('../database/db');
 const userSchema= require("../models/user");
-
+const dotenv = require("dotenv").config({path: '.env'});
 
 exports.login =  async function(req,res) {
     var db = await connect();    

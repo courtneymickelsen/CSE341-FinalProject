@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv").config({path: '.env'});
 
 const URI = "";
 const dbName = "bucketListApp";
