@@ -3,7 +3,7 @@ exports.home = ((req, res) => {
 });
 
 exports.main = ((req, res) => {
-    res.send(req.oidc.isAuthenticated() ? res.redirect("/user/signin") : res.redirect('/home'));
+    res.send(req.oidc.isAuthenticated() ? res.redirect('/user/signin') : res.redirect('/home'));
 });
 
 
