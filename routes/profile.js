@@ -8,6 +8,6 @@ const findOrCreate = require('mongoose-findorcreate');
 profileSchema.plugin(findOrCreate);
 
 routes.get("/dashboard", profileController.createProfile);
-routes.route("/dashboard/:id").get(profileController.createProfile).delete(profileController.deleteProfile);
-// .put(profileController.updateProfile)
+routes.route("/dashboard/:id").get(profileController.getProfile).post(profileController.createProfile).put(profileController.updateProfile).delete(profileController.deleteProfile);
+// 
 module.exports = routes;

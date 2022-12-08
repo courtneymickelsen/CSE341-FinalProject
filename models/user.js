@@ -1,29 +1,8 @@
 const mongoose = require("mongoose");
-var validate = require('mongoose-validator');
+const usernameValidator = require("../middlewares/user");
 const bcrypt = require("bcrypt");
-const dotenv = require("dotenv").config({path: '.env'});
 var saltRounds = process.env.DB_SALT;
 
-
-var usernameValidator = [{
-  validator1:validate({
-    validator: 'isLength',
-    arguments: [3, 15],
-    message: 'Username must be between {ARGS[0]} and {ARGS[1]}',
-  }),
-  validator2:validate({
-    validator: 'isLength',
-    arguments: [3, 20],
-    message: 'Password must be between {ARGS[0]} and {ARGS[1]}',
-  }),
-  validator3:validate({
-    validator: 'isEmail',
-    message: 'Email is Invalid.',
-  }),
-}
-  ];
-
-   
 const userSchema = new mongoose.Schema({
     username: {
         type:String, 
