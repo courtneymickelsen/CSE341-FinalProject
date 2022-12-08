@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended:true}), bodyParser.json());
 const PORT = 3000;
-const routes = require('./routes');
+const routes = require('./routes/index');
 app.use(routes);
 var cors = require('cors');
 app.use(cors());
@@ -17,4 +17,6 @@ app.all("/*", (req,res) => {
 app.listen((PORT), ()=>{
     console.log("This server is listening on http://localhost:" + PORT);
 });
+
+
 
