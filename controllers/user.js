@@ -10,6 +10,6 @@ exports.signin =  async function(req,res) {
         console.log(err.message);
       }
       console.log(user);
-      res.redirect('/profile/dashboard');
+      res.redirect('/profile/');
     });
   };

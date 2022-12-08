@@ -35,17 +35,22 @@ exports.createProfile =(async(req, res) => {
 
 //Get User Profile
 exports.getProfile = (async(req, res) => {
-  var db = await connect();    
-  var Profile =db.model(process.env.DB_COLLECTION_5, profileSchema);
-  Profile.findOne({ 
-    _id:ObjectId(req.params)
-  }).then(async (profile) => {
-    if (profile) {
-        res.send(profile);
-    } else {
-      res.send("No profile exists for this user.");
+    try{
+        var db = await connect();    
+        var Profile =db.model(process.env.DB_COLLECTION_5, profileSchema);
+        Profile.findOne({ 
+          _id:ObjectId(req.params)
+        }).then(async (profile) => {
+          if (profile) {
+              res.send(profile);
+          } else {
+            res.send("No profile exists for this user.");
+          }
+      });
+    }catch(e){
+        res.send(e.message);
     }
-});
+  
 });
 
   
@@ -62,11 +67,11 @@ exports.updateProfile =(async(req,res)=>{
       if(err){
           res.send(err.message);
       }else{
-          res.status(500).sendStatus(200);
+        res.send({message: "Update was successful."});
       }
   });
   }catch(e){
-      res.status(500).send(e.message);
+      res.send(e.message);
   }
 });
 

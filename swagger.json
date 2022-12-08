@@ -80,7 +80,7 @@
           }
         }
       },
-      "/list": {
+      "/list/": {
         "get": {
           "tags": [
             "List"
@@ -89,18 +89,6 @@
           "description": "",
           "parameters": [     
           ],
-          "requestBody":{
-            "content": {
-              "application/json": {
-                "schema":{
-                  "type": "object",
-                  "properties": 
-                  {
-                  }
-                }
-              }
-            }
-          },
           "responses": {
             "200": {
               "description": "Success"
@@ -135,7 +123,7 @@
         }
       },
       "/login": {
-        "post": {
+        "get": {
           "tags": [
             "OAuth 2.0"
           ],
@@ -195,16 +183,20 @@
           "tags": [
             "List"
           ],
-          "description": "",
-          "produces": [
-            "application/json"
+          "security": [
           ],
+          "description": "",
           "parameters": [
-            
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
           ],
           "responses": {
             "200": {
-              "description": "OK"
+              "description": "Success"
             }
           }
         },
@@ -265,7 +257,7 @@
           }
         }
       },
-      "/idea": {
+      "/idea/": {
         "get": {
           "tags": [
             "Idea"
@@ -274,18 +266,6 @@
           "description": "",
           "parameters": [     
           ],
-          "requestBody":{
-            "content": {
-              "application/json": {
-                "schema":{
-                  "type": "object",
-                  "properties": 
-                  {
-                  }
-                }
-              }
-            }
-          },
           "responses": {
             "200": {
               "description": "Success"
@@ -319,27 +299,16 @@
           }
         }
       },
-      "/profile": {
-        "post": {
+      "/profile/": {
+        "get": {
           "tags": [
             "Profile"
           ],
           "security": [],
           "description": "",
-          "parameters": [     
+          "parameters": [ 
+              
           ],
-          "requestBody":{
-            "content": {
-              "application/json": {
-                "schema":{
-                  "type": "object",
-                  "properties": 
-                  {
-                  }
-                }
-              }
-            }
-          },
           "responses": {
             "200": {
               "description": "Success"
@@ -357,7 +326,12 @@
             "application/json"
           ],
           "parameters": [
-            
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
           ],
           "responses": {
             "200": {
@@ -432,7 +406,12 @@
             "application/json"
           ],
           "parameters": [
-            
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }  
           ],
           "responses": {
             "200": {
@@ -497,7 +476,7 @@
           }
         }
       },
-      "/reminder": {
+      "/reminder/": {
         "get": {
           "tags": [
             "Reminder"
@@ -506,18 +485,6 @@
           "description": "",
           "parameters": [     
           ],
-          "requestBody":{
-            "content": {
-              "application/json": {
-                "schema":{
-                  "type": "object",
-                  "properties": 
-                  {
-                  }
-                }
-              }
-            }
-          },
           "responses": {
             "200": {
               "description": "Success"
@@ -561,7 +528,12 @@
             "application/json"
           ],
           "parameters": [
-            
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
           ],
           "responses": {
             "200": {
