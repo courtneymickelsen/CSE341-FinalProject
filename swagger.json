@@ -131,18 +131,6 @@
           "description": "",
           "parameters": [     
           ],
-          "requestBody":{
-            "content": {
-              "application/json": {
-                "schema":{
-                  "type": "object",
-                  "properties": 
-                  {
-                  }
-                }
-              }
-            }
-          },
           "responses": {
             "200": {
               "description": "Success"
@@ -159,18 +147,6 @@
           "description": "",
           "parameters": [     
           ],
-          "requestBody":{
-            "content": {
-              "application/json": {
-                "schema":{
-                  "type": "object",
-                  "properties": 
-                  {
-                  }
-                }
-              }
-            }
-          },
           "responses": {
             "200": {
               "description": "Success"
