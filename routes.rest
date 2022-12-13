@@ -1,0 +1,28 @@
+### get all ideas
+GET http://localhost:3000/idea
+
+### create new idea
+POST http://localhost:3000/idea HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Learn to bake bread"
+}
+
+### get all list items
+GET http://localhost:3000/list
+
+### get single list item
+GET http://localhost:3000/list/item/639827babb802ed8b8d14b03
+
+### create new list item
+POST http://localhost:3000/list HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "See the Northern Lights",
+    "cost": 50,
+    "location": "Alaska",
+    "supplies": "Food and blankets",
+    "notes": "Yay!"
+}

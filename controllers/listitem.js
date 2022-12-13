@@ -5,9 +5,9 @@ const { ObjectId } = require("mongodb");
 
 exports.getAllListItems = (async(req,res)=>{
     try{
-        var db = await connect(); 
-        var listItem =db.model(process.env.DB_COLLECTION_2, listItemSchema);
-        listItem.find({}, (err, items)=>{
+        var db = await connect();
+        var listItem = db.model(process.env.DB_COLLECTION_2, listItemSchema);
+        return listItem.find({}, (err, items) => {
             if(!err){
                 res.send(items);
             }
@@ -20,31 +20,11 @@ exports.getAllListItems = (async(req,res)=>{
     }
 });
 
-exports.createListItem = (async(req,res)=>{
+exports.getListItem = (async(req,res) => {
     try{
         var db = await connect(); 
-        var ListItem =db.model(process.env.DB_COLLECTION_2, listItemSchema);
-        var listItem = new ListItem({
-            title:req.body.title,
-            cost:req.body.cost,
-            location:req.body.location,
-            supplies:req.body.supplies,
-            complete:req.body.complete,
-            notes:req.body.notes,
-            people:[]
-        });
-        await listItem.save();
-        res.send(listItem);
-    }catch(e){
-        res.send(e.message);
-    }
-    
-});
-exports.getListItem = (async(req,res)=>{
-    try{
-        var db = await connect(); 
-        var ListItem =db.model(process.env.DB_COLLECTION_2, listItemSchema);
-        ListItem.findOne({ 
+        var ListItem = db.model(process.env.DB_COLLECTION_2, listItemSchema);
+        return ListItem.findOne({ 
             _id:ObjectId(req.params)
           }).then(async (listItem) => {
             if (listItem) {
@@ -57,39 +37,66 @@ exports.getListItem = (async(req,res)=>{
             res.send(e.message);
     }
 });
-exports.updateListItem = (async(req,res)=>{
+
+exports.createListItem = (async(req,res) => {
     try{
         var db = await connect(); 
         var ListItem =db.model(process.env.DB_COLLECTION_2, listItemSchema);
-        ListItem.findByIdAndUpdate({ _id: ObjectId(req.params)},
-      {$set: { title:req.body.title,
+        var listItem = new ListItem({
+            title:req.body.title,
+            cost:req.body.cost,
+            location:req.body.location,
+            supplies:req.body.supplies,
+            complete:req.body.complete,
+            notes:req.body.notes,
+            people:[]
+        });
+        return listItem.save()
+        .then(
+            res.send(listItem)
+        );    
+    }catch(e){
+        res.send(e.message);
+    }
+});
+
+exports.updateListItem = (async(req,res) => {
+    try{
+        var db = await connect(); 
+        var ListItem =db.model(process.env.DB_COLLECTION_2, listItemSchema);
+        return await ListItem.findByIdAndUpdate({ _id: ObjectId(req.params)},
+        {$set: { title:req.body.title,
                 cost:req.body.cost,
                 location:req.body.location,
                 supplies:req.body.supplies,
                 complete:req.body.complete,
                 notes:req.body.notes,
-                people:[]}}, (err, item)=>{
-      if(err){
-          res.send(err.message);
-      }else{
-          res.status(500).json({status: 200,
-                                message: "Update Successful."});
-      }
-  });
+                people:[]}})
+        .then((item, err) => {
+
+            if(err){
+                res.send(err.message);
+            }else{
+                res.status(200);
+                res.send(item);
+            }
+        }
+    );
     } catch(e){
-            res.send(e.message);
+        res.send(e.message);
     }
 });
 
-exports.deleteListItem =  (async(req,res)=>{
+exports.deleteListItem =  (async(req,res) => {
     try{
         var db = await connect(); 
         var ListItem =db.model(process.env.DB_COLLECTION_2, listItemSchema);
-        ListItem.findOneAndDelete({ _id: ObjectId(req.params.id )}, (err, list)=>{
+        return await ListItem.findOneAndDelete({ _id: ObjectId(req.params.id )})
+        .then((item, err)=>{
             if(err){
                 res.status(500).send(err.message);
             }else{
-            res.send({message: "Delete was successful."});
+                res.send({message: "Delete was successful."});
             }
         });
     } catch(e){

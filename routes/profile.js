@@ -1,7 +1,7 @@
 const express = require('express');
 const routes = express.Router();
-const profileController =require("../controllers/profile");
-const profileSchema= require("../models/profile");
+const profileController = require("../controllers/profile");
+const profileSchema = require("../models/profile");
 
 
 routes.get("/", profileController.createProfile);

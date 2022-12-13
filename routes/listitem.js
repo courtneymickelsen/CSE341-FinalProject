@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = express.Router();
-const listItemController =require("../controllers/listitem");
+const listItemController = require("../controllers/listitem");
 
 
 routes.route('/').get(listItemController.getAllListItems).post(listItemController.createListItem);

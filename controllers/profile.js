@@ -1,10 +1,10 @@
 const connect = require('../database/db');
-const profileSchema= require("../models/profile");
+const profileSchema = require("../models/profile");
 const dotenv = require("dotenv").config({path: '.env'});
 const { ObjectId } = require("mongodb");
 
 
-exports.createProfile =(async(req, res) => {
+exports.createProfile = (async(req, res) => {
     try{
         var db = await connect();    
         var Profile =db.model(process.env.DB_COLLECTION_5, profileSchema);

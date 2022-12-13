@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({extended:true}), bodyParser.json());
-const PORT = 3000;
 const routes = require('./routes/index');
-app.use(routes);
+const dotenv = require("dotenv").config({path: '.env'});
 var cors = require('cors');
+const PORT = process.env.PORT || 3000;
+
+app.use(bodyParser.urlencoded({extended:true}), bodyParser.json());
+app.use(routes);
 app.use(cors());
-
-
 
 app.all("/*", (req,res) => {
     res.send("404 Page Not found.\n It could be possible that this resource does not exist or was never created.");

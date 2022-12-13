@@ -6,7 +6,7 @@ const dotenv = require("dotenv").config({path: '.env'});
 exports.getAllReminders = (async(req,res)=>{
     try{
         var db = await connect(); 
-        var reminder =db.model(process.env.DB_COLLECTION_4, reminderSchema);
+        var reminder = db.model(process.env.DB_COLLECTION_4, reminderSchema);
         reminder.find({}, (err,reminder)=>{
             if(err){
                 res.send(err.message);
