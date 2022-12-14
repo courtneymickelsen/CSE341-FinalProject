@@ -11,7 +11,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: process.env.AUTH_0_SECRET,
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://cse341-finalproject.onrender.com',
   clientID: process.env.AUTH_0_CLIENT_ID,
   issuerBaseURL: process.env.AUTH_0_BASE_URL
 };
