@@ -1,4 +1,4 @@
-const connect = require('../database/db.js');
+const connect = require('../database/db.ts');
 const listItemSchema = require("../models/listitem");
 const { ObjectId } = require("mongodb");
 

@@ -1,4 +1,4 @@
-const connect = require('../database/db.js');
+const connect = require('../database/db.ts');
 const reminderSchema = require("../models/reminder");
 const { ObjectId } = require("mongodb");
 const dotenv = require("dotenv").config({path: '.env'});
@@ -7,7 +7,8 @@ exports.getAllReminders = (async(req,res)=>{
     try{
         var db = await connect(); 
         var reminder = db.model(process.env.DB_COLLECTION_4, reminderSchema);
-        return reminder.find({}, (err,reminder)=>{
+        return reminder.find({})
+        .then((err,reminder) => {
             if(err){
                 res.send(err.message);
             }else{
