@@ -1,4 +1,4 @@
-const connect = require('../database/db.ts');
+const connect = require('../database/db.js');
 const reminderSchema = require("../models/reminder");
 const { ObjectId } = require("mongodb");
 const dotenv = require("dotenv").config({path: '.env'});

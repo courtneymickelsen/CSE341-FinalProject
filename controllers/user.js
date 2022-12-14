@@ -1,4 +1,4 @@
-const connect = require('../database/db.ts');
+const connect = require('../database/db.js');
 const userSchema= require("../models/user");
 const dotenv = require("dotenv").config({path: '.env'});
 
