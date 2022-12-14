@@ -1,4 +1,4 @@
-const connect = require('../database/db');
+const connect = require('../database/db.ts');
 const ideaSchema = require("../models/idea");
 const { ObjectId } = require("mongodb");
 const dotenv = require("dotenv").config({path: '.env'});

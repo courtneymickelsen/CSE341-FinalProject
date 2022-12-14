@@ -1,4 +1,4 @@
-const connect = require('../database/db');
+const connect = require('../database/db.ts');
 const profileSchema = require("../models/profile");
 const dotenv = require("dotenv").config({path: '.env'});
 const { ObjectId } = require("mongodb");
