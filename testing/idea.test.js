@@ -2,7 +2,7 @@ const mock = require('jest-mock-req-res');
 const { ObjectId } = require('mongodb');
 const { getIdeas, getIdea, createIdea, updateIdea, deleteIdea } = require('../controllers/idea');
 // jest.useFakeTimers();
-jest.setTimeout(90 * 1000);
+// jest.setTimeout(90 * 1000);
 
 // NOT WORKING getIdeas()
 // describe("getIdeas()", () => {
@@ -49,7 +49,6 @@ describe("getIdea()", () => {
     });
   });
 });
-
 
 describe("createIdea()", () => {
   describe("create a new idea", () => {

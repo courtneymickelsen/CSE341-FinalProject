@@ -26,3 +26,31 @@ Content-Type: application/json
     "supplies": "Food and blankets",
     "notes": "Yay!"
 }
+
+### get single profile
+GET http://localhost:3000/profile/639827babb802ed8b8d14b03
+
+### create new profile
+POST http://localhost:3000/profile HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "courtneylamx@gmail.com"
+}
+
+### get all reminders
+GET http://localhost:3000/reminder
+
+### get single reminder
+GET http://localhost:3000/reminder/639827babb802ed8b8d14b03
+
+### create new reminder
+POST http://localhost:3000/reminder HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Go to Paris",
+    "date": "October 20",
+    "time": "12:00",
+    "items": []
+}

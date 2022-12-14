@@ -3,19 +3,39 @@ const profileSchema = require("../models/profile");
 const dotenv = require("dotenv").config({path: '.env'});
 const { ObjectId } = require("mongodb");
 
+//Get User Profile
+exports.getProfile = (async(req, res) => {
+    try{
+        var db = await connect();    
+        var Profile = db.model(process.env.DB_COLLECTION_5, profileSchema);
+        return Profile.findOne({ 
+          _id:ObjectId(req.params)
+        }).then(async (profile) => {
+          if (profile) {
+              res.send(profile);
+          } else {
+            res.send("No profile exists for this user.");
+          }
+      });
+    }catch(e){
+        res.status(400)
+        .send(e.message);
+    }
+});
 
+// Create Profile
 exports.createProfile = (async(req, res) => {
     try{
         var db = await connect();    
-        var Profile =db.model(process.env.DB_COLLECTION_5, profileSchema);
-        Profile.findOne({ 
+        var Profile = db.model(process.env.DB_COLLECTION_5, profileSchema);
+        return await Profile.findOne({ 
             email: req.oidc.user.email
         }).then(async (profile) => {
           if (profile) {
               console.log("Profile already Exists");
               res.send(req.oidc.isAuthenticated() ? res.send(profile): res.redirect('/home'));
           } else {
-            var prof= new Profile({
+            var prof = new Profile({
               googleId: req.oidc.user.sid,
               first_name:req.oidc.user.given_name,
               last_name:req.oidc.user.family_name,
@@ -32,28 +52,6 @@ exports.createProfile = (async(req, res) => {
     }
     
 });
-
-//Get User Profile
-exports.getProfile = (async(req, res) => {
-    try{
-        var db = await connect();    
-        var Profile =db.model(process.env.DB_COLLECTION_5, profileSchema);
-        Profile.findOne({ 
-          _id:ObjectId(req.params)
-        }).then(async (profile) => {
-          if (profile) {
-              res.send(profile);
-          } else {
-            res.send("No profile exists for this user.");
-          }
-      });
-    }catch(e){
-        res.send(e.message);
-    }
-  
-});
-
-  
 
 // Update Profile
 exports.updateProfile =(async(req,res)=>{

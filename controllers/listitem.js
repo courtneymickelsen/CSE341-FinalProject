@@ -2,7 +2,6 @@ const connect = require('../database/db');
 const listItemSchema = require("../models/listitem");
 const { ObjectId } = require("mongodb");
 
-
 exports.getAllListItems = (async(req,res)=>{
     try{
         var db = await connect();
@@ -63,7 +62,7 @@ exports.createListItem = (async(req,res) => {
 exports.updateListItem = (async(req,res) => {
     try{
         var db = await connect(); 
-        var ListItem =db.model(process.env.DB_COLLECTION_2, listItemSchema);
+        var ListItem = db.model(process.env.DB_COLLECTION_2, listItemSchema);
         return await ListItem.findByIdAndUpdate({ _id: ObjectId(req.params)},
         {$set: { title:req.body.title,
                 cost:req.body.cost,
@@ -71,17 +70,16 @@ exports.updateListItem = (async(req,res) => {
                 supplies:req.body.supplies,
                 complete:req.body.complete,
                 notes:req.body.notes,
-                people:[]}})
+                people:[]}},
+        {new: true})
         .then((item, err) => {
-
             if(err){
                 res.send(err.message);
             }else{
                 res.status(200);
                 res.send(item);
             }
-        }
-    );
+        });
     } catch(e){
         res.send(e.message);
     }
@@ -90,7 +88,7 @@ exports.updateListItem = (async(req,res) => {
 exports.deleteListItem =  (async(req,res) => {
     try{
         var db = await connect(); 
-        var ListItem =db.model(process.env.DB_COLLECTION_2, listItemSchema);
+        var ListItem = db.model(process.env.DB_COLLECTION_2, listItemSchema);
         return await ListItem.findOneAndDelete({ _id: ObjectId(req.params.id )})
         .then((item, err)=>{
             if(err){
@@ -99,7 +97,7 @@ exports.deleteListItem =  (async(req,res) => {
                 res.send({message: "Delete was successful."});
             }
         });
-    } catch(e){
-            res.send(e.message);
+    }catch(e){
+        res.send(e.message);
     }
 });
