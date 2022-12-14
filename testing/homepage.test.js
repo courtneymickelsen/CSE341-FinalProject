@@ -12,7 +12,7 @@ describe("accessing routes/", () => {
             expect(res0.send).toHaveBeenCalledWith('Welcome to the Homepage.');
         });
     });
-    
+
     // if user is not signed in, it should take them to the homepage
     describe("testing user that is not signed in", () => {
         const reqFalseAuth = mock.mockRequest({

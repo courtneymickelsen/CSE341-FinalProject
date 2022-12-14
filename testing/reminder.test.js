@@ -13,7 +13,7 @@ describe("getReminder()", () => {
     const res0 = mock.mockResponse();
     const mockReminder = {
       _id: ObjectId('6398ef98db2b70d47ad0291b'),
-      title: "Go to Paris"
+      title: "Open a Bakery"
     };
     
     test("responds with the reminder document", async () => {
