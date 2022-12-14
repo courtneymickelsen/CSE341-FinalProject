@@ -8,7 +8,7 @@ var profileValidator = [{
     }),
     validator2:validate({
       validator: 'isLength',
-      arguments: [1, 8],
+      arguments: [3, 20],
       message: 'Last Name value must be between {ARGS[0]} and {ARGS[1]}',
     }),
     validator3:validate({
