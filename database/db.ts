@@ -1,4 +1,4 @@
-const mongoose: any = require("mongoose");
+const mongoose = require("mongoose");
 const dotenv: object = require("dotenv").config({path: '.env'});
 
 const URI: string | undefined = process.env.DB_URI;
